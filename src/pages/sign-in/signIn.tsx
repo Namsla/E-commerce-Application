@@ -4,7 +4,7 @@ import { IClient } from "../types/data";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Container from "../../components/containers/container";
+import Container from "../../components/Layout/containers/container";
 
 const apiUrl = " http://localhost:3000/clients";
 
