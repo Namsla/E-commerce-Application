@@ -1,5 +1,16 @@
 const Error = () => {
-  return <div> This is error page</div>;
+  return (
+    <div>
+      <h2>404</h2>
+      <h1>Page not found.</h1>
+
+      <p>
+        We’re sorry but it appears that we can’t find the page you were looking
+        for. Usually this occurs because of a page that previously existed was
+        removed or you’ve mistyped the address.
+      </p>
+    </div>
+  );
 };
 
 export default Error;

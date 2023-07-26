@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/productwishlist",
-    element: <Wishlist />,
+    element: <WishList />,
   },
   {
     path: "/shoppingcart",
