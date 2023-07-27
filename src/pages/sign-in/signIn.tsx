@@ -58,9 +58,10 @@ function SignIn() {
     <>
       <Header1 />
       <div className="flex justify-center items-center mt-10 drop-shadow-lg">
-        <div className="flex justify-center items-center bg-[url('https://logopond.com/logos/5b75fcfdf7cd91f36c1007cecb83c855.png')] bg-center bg-no-repeat bg-cover">
-          <div className="flex min-h-full flex-col justify-center px-6 py-6 lg:px-8 bg-white/90">
-            <div className="flex justify-center text-2xl text-orange-600">
+        <div className="flex justify-center items-center rounded-xl ">
+          {/* <div className="bg-indigo-500/50"> */}
+          <div className="flex min-h-full flex-col justify-center px-6 py-6 lg:px-8 bg-white/50">
+            <div className="flex justify-center text-2xl text-indigo-600">
               Sign In
             </div>
             <div className=" sm:mx-auto sm:w-full sm:max-w-sm ">
@@ -76,7 +77,7 @@ function SignIn() {
                       type="email"
                       value={email}
                       onChange={(event) => setEmail(event.target.value)}
-                      className="block w-full rounded-md py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-100"
+                      className="block w-full rounded-md py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-100 bg-white/50"
                     />
                   </div>
                 </div>
@@ -88,7 +89,7 @@ function SignIn() {
                     <div className="text-sm">
                       <a
                         href="#"
-                        className="font-semibold text-orange-600 hover:text-orange-500"
+                        className="font-semibold text-indigo-600 hover:text-indigo-500"
                       >
                         Forgot password?
                       </a>
@@ -101,7 +102,7 @@ function SignIn() {
                       type="password"
                       value={password}
                       onChange={(event) => setPassword(event.target.value)}
-                      className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                      className="block w-full rounded-md bg-white/50 border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
@@ -109,7 +110,7 @@ function SignIn() {
                   <button
                     type="submit"
                     // onClick={handleLogin1}
-                    className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+                    className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Sign in{" "}
                   </button>
@@ -120,7 +121,7 @@ function SignIn() {
                   Not a member yet?&nbsp;
                   <a
                     href="/register"
-                    className="font-semibold leading-6 text-l text-orange-600 hover:text-orange-500 ml-2 mr-2"
+                    className="font-semibold leading-6 text-l text-indigo-600 hover:text-indigo-500 ml-2 mr-2"
                   >
                     Sign Up and Explore world of wonders
                   </a>
@@ -129,6 +130,7 @@ function SignIn() {
               </div>
             </div>
           </div>
+          {/* </div> */}
         </div>
       </div>
       {/* <ToastContainer position={toast.POSITION.TOP_CENTER} /> */}

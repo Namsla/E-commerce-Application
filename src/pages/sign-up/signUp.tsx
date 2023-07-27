@@ -54,7 +54,6 @@ function SignUp() {
       //   toast.error("Looks like you already have an account with us.");
     } else {
       event.preventDefault();
-      toast.error("Sign up completed.");
       setSignupComplete(!signupComplete);
       // fetch(apiUrl, {
       //   method: "POST",
@@ -93,12 +92,22 @@ function SignUp() {
   return signupComplete ? (
     <>
       <Header1 />
+      {/* toast.success("Sign up completed."); */}
       <div className="flex justify-center p-4">
         <div className="w-1/2 flex justify-center p-4 text-xl">
           <div>
             <p className="text-2xl text-indigo-600 mb-4">Hello {fName},</p>
-            <p>We are very pleased to welcome you to our website.</p>
-            <button onClick={toHome}>Continue to homepage</button>
+            <p className="text-lg mb-5">
+              We are very pleased to welcome you to our website.
+            </p>
+            <div className="flex justify-end">
+              <button
+                onClick={toHome}
+                className="flex justify-end bg-indigo-600 text-white p-2 px-3 rounded-lg drop-shadow-lg hover:bg-indigo-500"
+              >
+                Start Exploring
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -106,15 +115,16 @@ function SignUp() {
   ) : (
     <>
       <Header1 />
-      <div className="flex justify-center p-4">
-        <div className="w-1/2 bg-[url('https://logopond.com/logos/5b75fcfdf7cd91f36c1007cecb83c855.png')] bg-center bg-no-repeat bg-cover">
-          <div className="bg-white/90 p-4">
+      <div className="flex justify-center p-6 drop-shadow-lg rounded-xl">
+        <div className="w-1/2 ">
+          {/* <div className="bg-indigo-500/50"> */}
+          <div className="bg-white/50 p-4 rounded-xl">
             <form>
               {/* <div className="space-y-12"> */}
-              <div className="border-b border-gray-900/10 pb-6">
+              <div className="border-b border-gray-900/10 pb-6 ">
                 <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                   <div className="sm:col-span-6">
-                    <p className="text-2xl text-indigo-600 mb-5 flex justify-center text-orange-600">
+                    <p className="text-2xl text-indigo-600 mb-5 flex justify-center text-indigo-600">
                       {" "}
                       Signup
                     </p>
@@ -133,7 +143,7 @@ function SignUp() {
                           id="email"
                           name="email"
                           type="email"
-                          className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block px-1 bg-white/50 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
                       <div className="sm:col-span-6 text-xs mt-2">
@@ -167,7 +177,7 @@ function SignUp() {
                         type="password"
                         name="password"
                         id="password"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full px-1 bg-white/50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -182,7 +192,7 @@ function SignUp() {
                         type="password"
                         name="password2"
                         id="password2"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full px-1 bg-white/50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -197,7 +207,7 @@ function SignUp() {
                         type="text"
                         name="first-name"
                         id="first-name"
-                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block px-1 w-full bg-white/50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -213,7 +223,7 @@ function SignUp() {
                         type="text"
                         name="last-name"
                         id="last-name"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full px-1 bg-white/50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -228,7 +238,7 @@ function SignUp() {
                         onChange={(event) => setCountry(event.target.value)}
                         id="country"
                         name="country"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                        className="block w-full px-1 bg-white/50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                         disabled
                       >
                         <option>United States</option>
@@ -266,7 +276,7 @@ function SignUp() {
                         onChange={(event) => setState(event.target.value)}
                         id="state"
                         name="state"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                        className="block w-full px-1 bg-white/50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                       >
                         <option>MA</option>
                         <option>CA</option>
@@ -304,7 +314,7 @@ function SignUp() {
                         type="text"
                         name="street-address"
                         id="street-address"
-                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block px-1 w-full bg-white/50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -320,7 +330,7 @@ function SignUp() {
                         type="text"
                         name="city"
                         id="city"
-                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block px-1 w-full bg-white/50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -336,7 +346,7 @@ function SignUp() {
                         type="text"
                         name="postal-code"
                         id="postal-code"
-                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block px-1 w-full bg-white/50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -350,7 +360,7 @@ function SignUp() {
                         onChange={(event) => setAbout(event.target.value)}
                         id="about"
                         name="about"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full px-1 bg-white/50 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       ></textarea>
                     </div>
                     <p className="mt-3 text-sm leading-6 text-gray-600">
@@ -369,7 +379,7 @@ function SignUp() {
                         id="comments"
                         name="comments"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        className="h-4 w-4 rounded bg-white/50 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                     </div>
                     <div className="text-sm leading-6">
@@ -409,13 +419,14 @@ function SignUp() {
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="rounded-md bg-orange-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="rounded-md bg-indigo-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Save
                 </button>
               </div>
             </form>
           </div>
+          {/* </div> */}
         </div>
       </div>
       <ToastContainer position={toast.POSITION.TOP_CENTER} />
