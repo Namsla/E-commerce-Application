@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/home-page/homePage";
-import { Login } from "../pages/sign-in/signIn";
-import { SignUp } from "../pages/sign-up/signUp";
-import { ProductDetails } from "../pages/product-details-page/product-detail";
+import SignIn from "../pages/sign-in/signIn";
+import SignUp from "../pages/sign-up/signUp";
+// import { ProductDetail } from "../pages/product-details-page/product-detail";
 import WishList from "../pages/product-wishlist-page/product-wishlist";
 import Cart from "../pages/cart-page/cart";
 import Error from "../pages/error-page/error";
@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/signin",
-    element: <Login />,
+    element: <SignIn />,
   },
   {
     path: "/signup",
@@ -25,10 +25,10 @@ export const router = createBrowserRouter([
     path: "/productlisting",
     element: <ProductsList />,
   },
-  {
-    path: "/productdetails",
-    element: <ProductDetails />,
-  },
+  // {
+  //   path: "/productdetails",
+  //   element: <ProductDetails />,
+  // },
   {
     path: "/productwishlist",
     element: <WishList />,
