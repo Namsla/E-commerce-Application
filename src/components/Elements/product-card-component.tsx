@@ -1,18 +1,24 @@
+import { Link } from "react-router-dom";
+
 export const ProductCard = () => {
   return (
     <div className="m-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-      <a href="/" className="relative">
+      <Link to="/" className="relative">
         <span className="absolute top-4 left-2 px-2 bg-orange-500 bg-opacity-90 text-white rounded">
           Best Seller
         </span>
-        <img className="rounded-t-lg w-full h-64" src="" alt="" />
-      </a>
+        <img
+          className="rounded-t-lg w-full h-64"
+          src="https://assets.bombas.com/image/fetch/c_crop,h_3040,w_3040/b_rgb:F5F8F8,c_scale,w_1068/f_auto,q_auto/https://images.ctfassets.net/09hbx69ra4p2/5jIHf3Lh64wq7sLhA92oZv/ef3cdcc0ae1ba2ea178618e5919220d4/mixed-layflat-product-transparent_ac30eca8-c366-4f4d-ab51-124ed07ee79d.png"
+          alt="rain-coat"
+        />
+      </Link>
       <div className="p-5">
-        <a href="/">
+        <Link to="/">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             The Complete Guide to Backend Development
           </h5>
-        </a>
+        </Link>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Error unde
           quisquam magni vel eligendi nam.

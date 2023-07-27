@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/home-page/homePage";
-import SignIn from "../pages/sign-in/signIn";
-import SignUp from "../pages/sign-up/signUp";
-import ProductDetails from "../pages/product-details-page/product-detail";
+import { Login } from "../pages/sign-in/signIn";
+import { SignUp } from "../pages/sign-up/signUp";
+import { ProductDetails } from "../pages/product-details-page/product-detail";
 import WishList from "../pages/product-wishlist-page/product-wishlist";
 import Cart from "../pages/cart-page/cart";
 import Error from "../pages/error-page/error";
-import ProductListing from "../pages/product-listing-page/product-listing";
+import { ProductsList } from "../pages/product-listing-page/product-listing";
 
 export const router = createBrowserRouter([
   {
@@ -15,15 +15,15 @@ export const router = createBrowserRouter([
   },
   {
     path: "/signin",
-    element: <SignIn />,
+    element: <Login />,
   },
   {
     path: "/signup",
     element: <SignUp />,
   },
   {
-    path: "/prouctlisting",
-    element: <ProductListing />,
+    path: "/productlisting",
+    element: <ProductsList />,
   },
   {
     path: "/productdetails",

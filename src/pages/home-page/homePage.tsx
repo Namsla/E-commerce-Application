@@ -1,14 +1,20 @@
 import Footer1 from "../../components/Nams-Layout/footer";
 import Header1 from "../../components/Nams-Layout/header";
-import ProductDetails from "../product-details-page/product-detail";
-import ProductListing from "../product-listing-page/product-listing";
+import { FeaturedProducts } from "./featured-products";
+import { Faq } from "./frequently-asked-questions";
+import { Hero } from "./hero-section";
+import { Testimonials } from "./testimonial";
 
 function HomePage() {
   return (
     <>
       <Header1 />
-      <ProductListing />
-      <ProductDetails />
+      <main>
+        <Hero />
+        <FeaturedProducts />
+        <Testimonials />
+        <Faq />
+      </main>
       <Footer1 />
     </>
   );
