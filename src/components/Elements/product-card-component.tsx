@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Rating } from "./Rating";
+import Rating from "./Rating";
 
 export const ProductCard = ({ product }) => {
   const { id, name, overview, poster, price, rating, best_seller } = product;
