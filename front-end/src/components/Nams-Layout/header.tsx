@@ -18,7 +18,7 @@ function Header1() {
           <div className="flex items-center gap-4">
             <span>
               <svg
-                className="w-[24px] h-[24px] text-gray-800 dark:text-white"
+                className="w-[24px] h-[24px] text-gray-800 dark:text-white mr-5"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
