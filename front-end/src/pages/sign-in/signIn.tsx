@@ -1,5 +1,5 @@
+import Footer1 from "../../components/Nams-Layout/footer";
 import Header1 from "../../components/Nams-Layout/header";
-import viteLogo from "/vite.svg";
 import { useState } from "react";
 // import { IClient } from "../types/data";
 // import { useNavigate } from "react-router-dom";
@@ -58,7 +58,7 @@ function SignIn() {
   return (
     <>
       <Header1 />
-      <div className="flex justify-center items-center mt-10 drop-shadow-lg">
+      <main className="flex justify-center items-center mt-10 drop-shadow-lg">
         <div className="flex justify-center items-center">
           <div className="flex min-h-full bg-slate-100 flex-col justify-center px-6 py-6 lg:px-8">
             <div className=" sm:mx-auto sm:w-full sm:max-w-sm">
@@ -129,9 +129,10 @@ function SignIn() {
             </div>
           </div>
         </div>
-      </div>
+      </main>
       {/* <ToastContainer position={toast.POSITION.TOP_CENTER} /> */}
       {console.log(email, password)}
+      <Footer1 />
     </>
   );
 }
