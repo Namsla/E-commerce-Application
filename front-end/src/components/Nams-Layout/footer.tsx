@@ -7,7 +7,7 @@ function Footer1() {
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2023
           <Link to="/" className="hover:underline">
-            Bazaar
+            <span> Bazaar</span>
           </Link>
           . All Rights Reserved.
         </span>
@@ -66,7 +66,7 @@ function Footer1() {
                 clipRule="evenodd"
               />
             </svg>
-            <span className="sr-only">GitHub account</span>
+            <span className="sr-only">GitHub Account</span>
           </Link>
         </div>
       </div>
