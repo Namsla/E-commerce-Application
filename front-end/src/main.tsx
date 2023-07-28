@@ -6,6 +6,7 @@ import SignIn from "./pages/sign-in/signIn.tsx";
 import SignUp from "./pages/sign-up/signUp.tsx";
 import { ProductsList } from "./pages/product-listing-page/product-listing.tsx";
 import { ProductDetail } from "./pages/product-details-page/product-detail.tsx";
+import { Search } from "./components/Sections/search-bar/searchBar.tsx";
 
 const router = createBrowserRouter([
   {
@@ -13,9 +14,12 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/login",
-    element: <SignIn />,
+    path: "/search",
+    element: <Search />,
   },
+
+  {},
+
   {
     path: "/signin",
     element: <SignIn />,

@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { Search } from "../Sections/search-bar/searchBar";
+import { useState } from "react";
 
 function Header1() {
+  const [searchSection, setSearchSection] = useState(false);
+
   return (
     <div>
       <nav className="bg-amber-100 border-gray-200 dark:bg-gray-900">
@@ -28,21 +32,24 @@ function Header1() {
               </svg>
             </span>
             <span>
-              <svg
-                className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 w-[24px] h-[24px] text-gray-800 dark:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-              </svg>
+              <Link to="/search">
+                <svg
+                  onClick={() => setSearchSection(!searchSection)}
+                  className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 w-[24px] h-[24px] text-gray-800 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                  />
+                </svg>
+              </Link>
             </span>
             <div className="flex flex-row justify-center">
               <span className="text-white text-sm  bg-rose-500 px-1 absolute top-2 rounded-full">
@@ -77,6 +84,7 @@ function Header1() {
           </div>
         </div>
       </nav>
+      {searchSection && <Search setSearchSection={setSearchSection} />}
     </div>
   );
 }
