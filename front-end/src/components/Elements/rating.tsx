@@ -1,36 +1,3 @@
-// export const Rating = ({ rating }) => {
-//   let ratingArray = Array(5).fill(false);
-//   for (let i = 0; i < rating; i++) {
-//     ratingArray[i] = true;
-//   }
-
-//   return (
-//     <>
-//       {ratingArray.map((value, index) =>
-//         value ? (
-//           <i
-//             key={index}
-//             className="w-4 h-4 text-yellow-300"
-//             aria-hidden="true"
-//             xmlns="http://www.w3.org/2000/svg"
-//             fill="currentColor"
-//             viewBox="0 0 22 20"
-//           ></i>
-//         ) : (
-//           <i
-//             key={index}
-//             className="w-4 h-4 text-yellow-300"
-//             aria-hidden="true"
-//             xmlns="http://www.w3.org/2000/svg"
-//             fill="currentColor"
-//             viewBox="0 0 22 20"
-//           ></i>
-//         )
-//       )}
-//     </>
-//   );
-// };
-
 function Rating() {
   return (
     <div className="flex items-center space-x-2 mb-5">

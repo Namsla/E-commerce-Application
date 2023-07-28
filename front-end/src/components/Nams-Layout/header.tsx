@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { Search } from "../Sections/search-bar/searchBar";
 import { useState } from "react";
+import { DropdownLoggedOut } from "../Elements/dropped-down-logged-out";
+// import { DropdownLoggedIn } from "../Elements/dropped-down-loggedin";
 
 function Header1() {
   const [searchSection, setSearchSection] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
 
   return (
     <div>
@@ -56,21 +59,24 @@ function Header1() {
                 0
               </span>
               <span>
-                <svg
-                  className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5   w-[24px] h-[24px] text-gray-800 dark:text-white"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 18 21"
-                >
-                  <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z" />
-                </svg>
+                <Link to="/cart">
+                  <svg
+                    className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5   w-[24px] h-[24px] text-gray-800 dark:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 18 21"
+                  >
+                    <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z" />
+                  </svg>
+                </Link>
               </span>
             </div>
 
             <span>
               <Link to="/signin">
                 <svg
+                  onClick={() => setDropdown(!dropdown)}
                   className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5  w-[24px] h-[24px] text-gray-800 dark:text-white"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
@@ -79,6 +85,7 @@ function Header1() {
                 >
                   <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
                 </svg>
+                {dropdown && <DropdownLoggedOut />}
               </Link>
             </span>
           </div>
