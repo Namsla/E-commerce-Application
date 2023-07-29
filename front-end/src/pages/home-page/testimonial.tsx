@@ -93,7 +93,7 @@ export const Testimonials = () => {
               alt="user"
             />
             <div className="space-y-0.5 font-medium dark:text-white text-left">
-              <div>Joseph McFall</div>
+              <div>Yogesh</div>
               <div className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Teacher
               </div>

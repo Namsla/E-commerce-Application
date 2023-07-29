@@ -5,6 +5,7 @@ import Header1 from "../../components/Nams-Layout/header";
 import Footer1 from "../../components/Nams-Layout/footer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useTitle } from "../../hooks/use-title";
 
 function SignUp() {
   const [password, setPassword] = useState("");
@@ -59,7 +60,7 @@ function SignUp() {
         console.log(error);
       });
   };
-
+  useTitle("Sign Up Page");
   return (
     <>
       <Header1 />

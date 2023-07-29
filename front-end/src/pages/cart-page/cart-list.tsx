@@ -1,7 +1,9 @@
 import Footer1 from "../../components/Nams-Layout/footer";
 import Header1 from "../../components/Nams-Layout/header";
+import { useTitle } from "../../hooks/use-title";
 
 export const CartList = () => {
+  useTitle("Shopping Cart List");
   return (
     <>
       <Header1 />

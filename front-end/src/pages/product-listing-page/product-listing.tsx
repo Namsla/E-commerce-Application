@@ -5,12 +5,15 @@ import { ScrollToTop } from "../../components/Others/scroll-to-top";
 import Header1 from "../../components/Nams-Layout/header";
 import Footer1 from "../../components/Nams-Layout/footer";
 import { useLocation } from "react-router-dom";
+import { useTitle } from "../../hooks/use-title";
 
 export const ProductsList = () => {
   const [show, setShow] = useState(false);
   const [products, setProducts] = useState([]);
   const search = useLocation().search;
   const searchTerm = new URLSearchParams(search).get("q");
+
+  useTitle("Product List");
 
   useEffect(() => {
     async function fetchProducts() {

@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useTitle } from "../../hooks/use-title";
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -36,6 +37,8 @@ function SignIn() {
         toast.error(error.response.data);
       });
   };
+
+  useTitle("Sign In Page");
 
   return (
     <>
