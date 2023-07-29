@@ -39,7 +39,7 @@ function Header1() {
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
           <Link to="/" className="flex items-center">
             <img
-              src="https://logopond.com/logos/5b75fcfdf7cd91f36c1007cecb83c855.png"
+              src="https://logopond.com/logos/09aca1c77e9d1b111f9b08ea28a3fa9a.png"
               className="h-12 mr-3"
               alt="Bazaar Logo"
             />
