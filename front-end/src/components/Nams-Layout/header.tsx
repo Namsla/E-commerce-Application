@@ -3,14 +3,25 @@ import { Search } from "../Sections/search-bar/searchBar";
 import { useState } from "react";
 import { DropdownLoggedOut } from "../Elements/dropped-down-logged-out";
 // import { DropdownLoggedIn } from "../Elements/dropped-down-loggedin";
+import { RiLogoutBoxRLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 function Header1() {
   const [searchSection, setSearchSection] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
+  const navigate = useNavigate();
+
+  const handleLogout = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    localStorage.removeItem("token");
+    navigate("/signin");
+  };
   return (
-    <div>
-      <nav className="bg-amber-100 border-gray-200 dark:bg-gray-900">
+    <div className="sticky top-0 z-50">
+      <nav className=" bg-amber-100 drop-shadow-lg border-gray-200 dark:bg-gray-900">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
           <Link to="/" className="flex items-center">
             <img
@@ -87,6 +98,14 @@ function Header1() {
                 </svg>
                 {dropdown && <DropdownLoggedOut />}
               </Link>
+            </span>
+            <span>
+              <button
+                onClick={handleLogout}
+                className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5   w-[24px] h-[24px] text-gray-800 dark:text-white"
+              >
+                <RiLogoutBoxRLine />
+              </button>
             </span>
           </div>
         </div>

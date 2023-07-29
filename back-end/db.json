@@ -1,4 +1,60 @@
 {
+  "users": [
+    {
+      "email": "sands@gmail.com",
+      "password": "$2a$10$.RXr4lE2Yjc9htFEfKcMA.14AY195wUHJ1HPdJYYir6v1PQ6t1zS.",
+      "fname": "sandesh",
+      "id": 3
+    },
+    {
+      "email": "san@san.san",
+      "password": "$2a$10$da3I94yiQK.URO7yQ40/0.oNsRHnRPnrS94/Kjh7J2wSxT9dywery",
+      "fName": "sdasd",
+      "id": 4
+    },
+    {
+      "email": "nam@gmail.com",
+      "password": "$2a$10$iDpaBNwm9vVUM3gxygB1h.p1fkaajpCmYa3SSb7mCqPd3LkB0wF72",
+      "fName": "namkhang",
+      "id": 5
+    },
+    {
+      "email": "sandesh@gmail.com",
+      "password": "$2a$10$nVuPLfSTgaJhLrO1ubAAt.Gev/.xMFUpLM/5xf94Nx5Z6k.cTO8WO",
+      "fName": "ascascdasd",
+      "id": 6
+    },
+    {
+      "email": "sandes@sa.as",
+      "password": "$2a$10$UBWq4C3NCyfenxMc4o9TvOjXx88Cz..IuP2A/H2uVnuSKIa9j8qWK",
+      "fName": "asdasd",
+      "id": 7
+    },
+    {
+      "email": "sand@yahoo.com",
+      "password": "$2a$10$7AV6VsF.4u.qV5h8061LCu/rmFR3KvaXfPpotGXICLjLgco7JTtvu",
+      "fName": "sand",
+      "id": 8
+    },
+    {
+      "email": "san@man.com",
+      "password": "$2a$10$Qq3wRbFRE/fl8RnynCIXsuzsqRMWX0zdhNRdiqvsqYf0zZbe/G/e2",
+      "fName": "asdasd",
+      "id": 9
+    },
+    {
+      "email": "nam@nam.com",
+      "password": "$2a$10$7A8bKqLamjgLM5DNfxus3OHqVaTbcd6.qqEg5j30oE5oZiDQ8NAVy",
+      "fName": "asda",
+      "id": 10
+    },
+    {
+      "email": "test@takeo.io",
+      "password": "$2a$10$bCPwxG5nUNwwUwFP5sUxwuvNevHvQt8ueJEWt8yQ94k//yq2.P5/u",
+      "fName": "eerwer",
+      "id": 11
+    }
+  ],
   "products": [
     {
       "id": 10001,
@@ -237,6 +293,5 @@
       "best_seller": true
     }
   ],
-  "orders": [],
-  "users": []
+  "orders": []
 }

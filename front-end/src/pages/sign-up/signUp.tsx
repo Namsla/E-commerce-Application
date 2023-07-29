@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header1 from "../../components/Nams-Layout/header";
 import Footer1 from "../../components/Nams-Layout/footer";
-// import { IClient } from "../types/data";
-// import Container from "../../components/containers/container";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
-  const navigate = useNavigate();
-
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [fName, setFname] = useState("");
@@ -23,100 +20,61 @@ function SignUp() {
   const [about, setAbout] = useState("");
   const [pError, setPError] = useState("");
   const [eError, setEError] = useState("");
-  const [signupComplete, setSignupComplete] = useState(false);
-  // const [client, setClients] = useState<IClient[]>([]);
 
-  // useEffect(() => {
-  //   fetch(apiUrl)
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       setClients(res);
-  //     });
-  // }, []);
+  const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  const handleSubmit = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+
     const passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
     const emailFormat = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     // const user = client.find((user) => email === user.email);
     if (!password || !password2 || !fName || !email) {
-      event.preventDefault();
       toast.error("Please input all starred fields");
+
+      return;
     } else if (!emailFormat.test(email)) {
-      event.preventDefault();
       setEError("Invalid email.");
-      toast.error("Invalid email.");
+      return;
     } else if (!passwordFormat.test(password)) {
-      event.preventDefault();
       setPError("Password do not satisfy above criteria.");
       toast.error("Password do not satisfy criteria.");
+      return;
     } else if (password !== password2) {
-      event.preventDefault();
       setPError("Confirmation password does not match.");
       toast.error("Confirmation password does not match.");
-      // } else if (user) {
-      //   toast.error("Looks like you already have an account with us.");
-    } else {
-      event.preventDefault();
-      toast.error("Sign up completed.");
-      setSignupComplete(!signupComplete);
-      // fetch(apiUrl, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     userid: userName,
-      //     password: password,
-      //     fName: fName,
-      //     lName: lName,
-      //     email: email,
-      //     country: country,
-      //     street: street,
-      //     city: city,
-      //     state: state,
-      //     zip: zip,
-      //     about: about,
-      //   }),
-      // })
-      //   .then((response) => response.json())
-      //   .then((response) => {
-      //     console.log(response);
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
-      // navigate("/");
+      return;
     }
+    axios
+      .post("http://localhost:3000/signup", { email, password, fName })
+      .then((response) => {
+        console.log(response);
+        toast.success("Welcome");
+        localStorage.setItem("token", response.data.accessToken);
+        navigate("/signin");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
-  const toHome = () => {
-    navigate("/");
-  };
-
-  return signupComplete ? (
-    <>
-      <div className="flex justify-center p-4">
-        <div className="w-1/2 flex justify-center p-4 text-xl">
-          <div>
-            <p className="text-2xl text-indigo-600 mb-4">Hello {fName},</p>
-            <p>We are very pleased to welcome you to our website.</p>
-            <button onClick={toHome}>Continue to homepage</button>
-          </div>
-        </div>
-      </div>
-    </>
-  ) : (
+  return (
     <>
       <Header1 />
-      <main>
-        <div className="flex justify-center p-4">
+      <main className="flex justify-center drop-shadow-lg">
+        <div className="flex justify-center">
           <div className="w-1/2">
             <form>
               {/* <div className="space-y-12"> */}
               <div className="border-b border-gray-900/10 pb-6">
-                <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                   <div className="sm:col-span-6">
-                    <p className="text-2xl text-indigo-600 mb-5"> Signup</p>
+                    <p className="text-2xl text-amber-600 mb-5 flex justify-center">
+                      {" "}
+                      Signup
+                    </p>
                     <p className=" flex sm:col-span-6 text-xs mb-5">
                       Please complete all fields marked with an asterisk (
                       <p className="text-red-600 text-sm">*</p>)
@@ -132,7 +90,7 @@ function SignUp() {
                           id="email"
                           name="email"
                           type="email"
-                          className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-100"
                         />
                       </div>
                       <div className="sm:col-span-6 text-xs mt-2">
@@ -166,7 +124,7 @@ function SignUp() {
                         type="password"
                         name="password"
                         id="password"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -181,7 +139,7 @@ function SignUp() {
                         type="password"
                         name="password2"
                         id="password2"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -196,7 +154,7 @@ function SignUp() {
                         type="text"
                         name="first-name"
                         id="first-name"
-                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -212,7 +170,7 @@ function SignUp() {
                         type="text"
                         name="last-name"
                         id="last-name"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -227,7 +185,7 @@ function SignUp() {
                         onChange={(event) => setCountry(event.target.value)}
                         id="country"
                         name="country"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:max-w-xs sm:text-sm sm:leading-6"
                         disabled
                       >
                         <option>United States</option>
@@ -265,7 +223,7 @@ function SignUp() {
                         onChange={(event) => setState(event.target.value)}
                         id="state"
                         name="state"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:max-w-xs sm:text-sm sm:leading-6"
                       >
                         <option>MA</option>
                         <option>CA</option>
@@ -303,7 +261,7 @@ function SignUp() {
                         type="text"
                         name="street-address"
                         id="street-address"
-                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -319,7 +277,7 @@ function SignUp() {
                         type="text"
                         name="city"
                         id="city"
-                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -335,7 +293,7 @@ function SignUp() {
                         type="text"
                         name="postal-code"
                         id="postal-code"
-                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -349,7 +307,7 @@ function SignUp() {
                         onChange={(event) => setAbout(event.target.value)}
                         id="about"
                         name="about"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       ></textarea>
                     </div>
                     <p className="mt-3 text-sm leading-6 text-gray-600">
@@ -368,7 +326,7 @@ function SignUp() {
                         id="comments"
                         name="comments"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        className="h-4 w-4 rounded border-gray-300 text-amber-600 focus:ring-amber-600"
                       />
                     </div>
                     <div className="text-sm leading-6">
@@ -384,7 +342,7 @@ function SignUp() {
                         id="candidates"
                         name="candidates"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        className="h-4 w-4 rounded border-gray-300 text-amber-600 focus:ring-amber-600"
                       />
                     </div>
                     <div className="text-sm leading-6">
@@ -408,7 +366,7 @@ function SignUp() {
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="rounded-md bg-indigo-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="rounded-md bg-amber-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
                 >
                   Save
                 </button>
@@ -417,7 +375,6 @@ function SignUp() {
           </div>
         </div>
         <ToastContainer position={toast.POSITION.TOP_CENTER} />
-        {console.log(password)}
       </main>
       <Footer1 />
     </>
