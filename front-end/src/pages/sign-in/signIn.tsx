@@ -30,7 +30,8 @@ function SignIn() {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data);
+        toast.error(error.response.data);
       });
   };
 
@@ -42,7 +43,7 @@ function SignIn() {
           <div>
             <form className="space-y-6">
               <div>
-                <div className="text-2xl text-indigo-600 mb-5 flex justify-center">
+                <div className="text-2xl text-amber-600 mb-5 flex justify-center">
                   SignIn
                 </div>
                 <label className="block text-sm font-medium leading-6 text-gray-900">
@@ -55,7 +56,7 @@ function SignIn() {
                     type="email"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    className="block w-full rounded-md py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-100"
+                    className="block w-full rounded-md py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-100"
                   />
                 </div>
               </div>
@@ -67,7 +68,7 @@ function SignIn() {
                   <div className="text-sm">
                     <a
                       href="#"
-                      className="font-semibold text-indigo-600 hover:text-indigo-500"
+                      className="font-semibold text-amber-600 hover:text-amber-500"
                     >
                       Forgot password?
                     </a>
@@ -80,7 +81,7 @@ function SignIn() {
                     type="password"
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
-                    className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -88,7 +89,7 @@ function SignIn() {
                 <button
                   type="submit"
                   onClick={handleLogin}
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-amber-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
                 >
                   Sign in{" "}
                 </button>
@@ -99,7 +100,7 @@ function SignIn() {
                 Not a member yet?&nbsp;
                 <a
                   href="/register"
-                  className="font-semibold leading-6 text-l text-indigo-600 hover:text-indigo-500 ml-2 mr-2"
+                  className="font-semibold leading-6 text-l text-amber-600 hover:text-amber-500 ml-2 mr-2"
                 >
                   Sign Up and Explore the world of wonders.
                 </a>

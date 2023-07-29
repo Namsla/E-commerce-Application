@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Footer1() {
   return (
     <footer className="bg-amber-100 shadow dark:bg-gray-800">
-      <div className="p-4 mx-auto max-w-screen-xl md:flex md:items-center md:justify-between md:p-6">
+      <div className="p-4 mx-auto max-w-screen-xl md:flex md:items-center md:justify-between">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2023
           <Link to="/" className="hover:underline">
