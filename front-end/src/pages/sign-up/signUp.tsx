@@ -54,15 +54,18 @@ function SignUp() {
   return (
     <>
       <Header1 />
-      <main>
-        <div className="flex justify-center p-4">
+      <main className="flex justify-center drop-shadow-lg">
+        <div className="flex justify-center">
           <div className="w-1/2">
             <form>
               {/* <div className="space-y-12"> */}
               <div className="border-b border-gray-900/10 pb-6">
-                <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                   <div className="sm:col-span-6">
-                    <p className="text-2xl text-indigo-600 mb-5"> Signup</p>
+                    <p className="text-2xl text-indigo-600 mb-5 flex justify-center">
+                      {" "}
+                      Signup
+                    </p>
                     <p className=" flex sm:col-span-6 text-xs mb-5">
                       Please complete all fields marked with an asterisk (
                       <p className="text-red-600 text-sm">*</p>)
@@ -78,7 +81,7 @@ function SignUp() {
                           id="email"
                           name="email"
                           type="email"
-                          className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-100"
                         />
                       </div>
                       <div className="sm:col-span-6 text-xs mt-2">
