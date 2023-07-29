@@ -64,7 +64,7 @@ function SignUp() {
     <>
       <Header1 />
       <main className="flex justify-center drop-shadow-lg">
-        <div className="flex justify-center">
+        <div className="flex justify-center p-5">
           <div className="w-1/2">
             <form>
               {/* <div className="space-y-12"> */}
@@ -72,11 +72,10 @@ function SignUp() {
                 <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                   <div className="sm:col-span-6">
                     <p className="text-2xl text-amber-600 mb-5 flex justify-center">
-                      {" "}
-                      Signup
+                      Sign Up
                     </p>
                     <p className=" flex sm:col-span-6 text-xs mb-5">
-                      Please complete all fields marked with an asterisk (
+                      Please Complete All Marked Fields With Asterisk Sign(
                       <p className="text-red-600 text-sm">*</p>)
                     </p>
                     <div className="col-span-6">
@@ -104,8 +103,9 @@ function SignUp() {
                   </div>
                   <div className="sm:col-span-6 text-xs">
                     {" "}
-                    Password must be at least 8 characters and contain at least
-                    1 letter, 1 digit, and 1 special character [!@#$%^&*].
+                    Password must be at least 8 characters long and it should
+                    contain at least 1 letter, 1 digit, and 1 special character
+                    [!@#$%^&*].
                   </div>
                   <div className="sm:col-span-6 text-xs">
                     {pError && (
@@ -145,7 +145,7 @@ function SignUp() {
                   </div>
                   <div className="sm:col-span-3">
                     <label className="flex text-sm font-medium leading-6 text-gray-900">
-                      First name&nbsp;<p className="text-red-500">*</p>
+                      First Name&nbsp;<p className="text-red-500">*</p>
                     </label>
                     <div className="mt-2">
                       <input
@@ -161,7 +161,7 @@ function SignUp() {
 
                   <div className="sm:col-span-3">
                     <label className="block text-sm font-medium leading-6 text-gray-900">
-                      Last name
+                      Last Name
                     </label>
                     <div className="mt-2">
                       <input
@@ -252,7 +252,7 @@ function SignUp() {
 
                   <div className="sm:col-span-5">
                     <label className="block text-sm font-medium leading-6 text-gray-900">
-                      Street address
+                      Street Address
                     </label>
                     <div className="mt-2">
                       <input
@@ -284,7 +284,7 @@ function SignUp() {
 
                   <div className="sm:col-span-1">
                     <label className="block text-sm font-medium leading-6 text-gray-900">
-                      ZIP code
+                      ZIP Code
                     </label>
                     <div className="mt-2">
                       <input
@@ -311,7 +311,7 @@ function SignUp() {
                       ></textarea>
                     </div>
                     <p className="mt-3 text-sm leading-6 text-gray-600">
-                      Write a few sentences about yourself.
+                      Write a Few Sentences About Yourself.
                     </p>
                   </div>
                 </div>
@@ -347,7 +347,7 @@ function SignUp() {
                     </div>
                     <div className="text-sm leading-6">
                       <label className="font-medium text-gray-900">
-                        More contracts. Blah Blah Blah Blah.
+                        More contracts
                       </label>
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Rating from "../../components/Elements/Rating";
+import { Rating } from "../../components/Elements/rating";
 import Header1 from "../../components/Nams-Layout/header";
 import Footer1 from "../../components/Nams-Layout/footer";
 import { ScrollToTop } from "../../components/Others/scroll-to-top";
