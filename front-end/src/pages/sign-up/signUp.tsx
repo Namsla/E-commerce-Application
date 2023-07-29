@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header1 from "../../components/Nams-Layout/header";
 import Footer1 from "../../components/Nams-Layout/footer";
-// import { IClient } from "../types/data";
-// import Container from "../../components/containers/container";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
-  const navigate = useNavigate();
-
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [fName, setFname] = useState("");
@@ -23,89 +20,38 @@ function SignUp() {
   const [about, setAbout] = useState("");
   const [pError, setPError] = useState("");
   const [eError, setEError] = useState("");
-  const [signupComplete, setSignupComplete] = useState(false);
-  // const [client, setClients] = useState<IClient[]>([]);
 
-  // useEffect(() => {
-  //   fetch(apiUrl)
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       setClients(res);
-  //     });
-  // }, []);
+  const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     const passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
     const emailFormat = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     // const user = client.find((user) => email === user.email);
     if (!password || !password2 || !fName || !email) {
-      event.preventDefault();
       toast.error("Please input all starred fields");
     } else if (!emailFormat.test(email)) {
-      event.preventDefault();
       setEError("Invalid email.");
-      toast.error("Invalid email.");
     } else if (!passwordFormat.test(password)) {
-      event.preventDefault();
       setPError("Password do not satisfy above criteria.");
       toast.error("Password do not satisfy criteria.");
     } else if (password !== password2) {
-      event.preventDefault();
       setPError("Confirmation password does not match.");
       toast.error("Confirmation password does not match.");
-      // } else if (user) {
-      //   toast.error("Looks like you already have an account with us.");
-    } else {
-      event.preventDefault();
-      toast.error("Sign up completed.");
-      setSignupComplete(!signupComplete);
-      // fetch(apiUrl, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     userid: userName,
-      //     password: password,
-      //     fName: fName,
-      //     lName: lName,
-      //     email: email,
-      //     country: country,
-      //     street: street,
-      //     city: city,
-      //     state: state,
-      //     zip: zip,
-      //     about: about,
-      //   }),
-      // })
-      //   .then((response) => response.json())
-      //   .then((response) => {
-      //     console.log(response);
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
-      // navigate("/");
     }
+    axios
+      .post("http://localhost:3000/signup", { email, password, fName })
+      .then((response) => {
+        console.log(response.data);
+        toast.success("Welcome");
+        navigate("/");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
-  const toHome = () => {
-    navigate("/");
-  };
-
-  return signupComplete ? (
-    <>
-      <div className="flex justify-center p-4">
-        <div className="w-1/2 flex justify-center p-4 text-xl">
-          <div>
-            <p className="text-2xl text-indigo-600 mb-4">Hello {fName},</p>
-            <p>We are very pleased to welcome you to our website.</p>
-            <button onClick={toHome}>Continue to homepage</button>
-          </div>
-        </div>
-      </div>
-    </>
-  ) : (
+  return (
     <>
       <Header1 />
       <main>
@@ -417,7 +363,6 @@ function SignUp() {
           </div>
         </div>
         <ToastContainer position={toast.POSITION.TOP_CENTER} />
-        {console.log(password)}
       </main>
       <Footer1 />
     </>

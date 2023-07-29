@@ -1,59 +1,38 @@
 import Footer1 from "../../components/Nams-Layout/footer";
 import Header1 from "../../components/Nams-Layout/header";
 import { useState } from "react";
-// import { IClient } from "../types/data";
-// import { useNavigate } from "react-router-dom";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-// import Container from "../../components/containers/container";
-
-// const apiUrl = " http://localhost:3000/clients";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const [client, setClients] = useState<IClient[]>([]);
+  const navigate = useNavigate();
 
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   fetch(apiUrl)
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       setClients(res);
-  //     });
-  // }, []);
+  const handleLogin = (event) => {
+    event.preventDefault();
+    if (!email) {
+      toast.error("Please input email address.");
+      return;
+    } else if (!password) {
+      toast.error("Please enter your password.");
+      return;
+    }
 
-  // const handleLogin1 = (event) => {
-  //   event.preventDefault();
-
-  //   // const user = client.find((user) => email === user.email);
-  //   if (!email) {
-  //     event.preventDefault();
-  //     toast.error("Please input email address.");
-  //   } else if (!password) {
-  //     event.preventDefault();
-  //     toast.error("Please enter your password.");
-  //   } else if (user) {
-  //     if (password === user.password) {
-  //       navigate("/home");
-  //     } else {
-  //       toast.error("Incorrect password. Please try again!");
-  //     }
-  //   } else {
-  //     toast.error(
-  //       "Couldn't find user with the specified email. Please try again!"
-  //     );
-  //   }
-
-  //   const users = client.find(
-  //     (user) => email === user.email && password === user.password
-  //   );
-
-  //   if (users) {
-  //     navigate("/home");
-  //   }
-  // };
+    axios
+      .post("http://localhost:3000/login", { email, password })
+      .then((response) => {
+        console.log(response);
+        toast.success("Welcome");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <>
@@ -107,7 +86,7 @@ function SignIn() {
                 <div>
                   <button
                     type="submit"
-                    // onClick={handleLogin1}
+                    onClick={handleLogin}
                     className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Sign in{" "}
@@ -130,7 +109,7 @@ function SignIn() {
           </div>
         </div>
       </main>
-      {/* <ToastContainer position={toast.POSITION.TOP_CENTER} /> */}
+      <ToastContainer position={toast.POSITION.TOP_CENTER} />
       {console.log(email, password)}
       <Footer1 />
     </>
