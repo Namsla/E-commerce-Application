@@ -12,7 +12,9 @@ function SignIn() {
 
   const navigate = useNavigate();
 
-  const handleLogin = (event) => {
+  const handleLogin = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     event.preventDefault();
     if (!email) {
       toast.error("Please input email address.");
