@@ -29,6 +29,8 @@ function SignIn() {
       .then((response) => {
         console.log(response);
         toast.success("Welcome");
+        setEmail("");
+        setPassword("");
         navigate("/");
       })
       .catch((error) => {
@@ -41,7 +43,7 @@ function SignIn() {
     <>
       <Header1 />
       <main className="flex justify-center drop-shadow-lg">
-        <div className="flex justify-center">
+        <div className="flex justify-center border-2 border-gray-900/10 p-4 rounded-lg">
           <div>
             <form className="space-y-6">
               <div>
@@ -112,7 +114,7 @@ function SignIn() {
           </div>
         </div>
       </main>
-      <ToastContainer position={toast.POSITION.TOP_CENTER} />
+      <ToastContainer position={toast.POSITION.BOTTOM_CENTER} />
       {console.log(email, password)}
       <Footer1 />
     </>

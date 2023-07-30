@@ -3,7 +3,7 @@ import { Search } from "../Sections/search-bar/searchBar";
 import { useState } from "react";
 import { DropdownLoggedOut } from "../Elements/dropped-down-logged-out";
 // import { DropdownLoggedIn } from "../Elements/dropped-down-loggedin";
-import { RiLogoutBoxRLine } from "react-icons/ri";
+import { RiLogoutBoxRFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 
 function Header1() {
@@ -102,9 +102,9 @@ function Header1() {
             <span>
               <button
                 onClick={handleLogout}
-                className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5   w-[24px] h-[24px] text-gray-800 dark:text-white"
+                className=" text-3xl text-gray-800 dark:text-white mr-5 items-center pt-2"
               >
-                <RiLogoutBoxRLine />
+                <RiLogoutBoxRFill />
               </button>
             </span>
           </div>

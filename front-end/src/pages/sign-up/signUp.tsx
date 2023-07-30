@@ -5,6 +5,8 @@ import Header1 from "../../components/Nams-Layout/header";
 import Footer1 from "../../components/Nams-Layout/footer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Country } from "./country";
+import { State } from "./state";
 
 function SignUp() {
   const [password, setPassword] = useState("");
@@ -37,6 +39,7 @@ function SignUp() {
       return;
     } else if (!emailFormat.test(email)) {
       setEError("Invalid email.");
+      toast.error("Invalid email.");
       return;
     } else if (!passwordFormat.test(password)) {
       setPError("Password do not satisfy above criteria.");
@@ -63,9 +66,9 @@ function SignUp() {
   return (
     <>
       <Header1 />
-      <main className="flex justify-center drop-shadow-lg">
-        <div className="flex justify-center">
-          <div className="w-1/2">
+      <main className="flex justify-center drop-shadow-lg  ">
+        <div className="flex justify-center ">
+          <div className="w-1/2 border-2 border-gray-900/10 p-4 rounded-lg">
             <form>
               {/* <div className="space-y-12"> */}
               <div className="border-b border-gray-900/10 pb-6">
@@ -186,29 +189,11 @@ function SignUp() {
                         id="country"
                         name="country"
                         className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                        disabled
+                        // disabled
                       >
-                        <option>United States</option>
-                        <option>Canada</option>
-                        <option>Mexico</option>
-                        <option>Great Britain</option>
-                        <option>France</option>
-                        <option>Spain</option>
-                        <option>Nepal</option>
-                        <option>Japan</option>
-                        <option>China</option>
-                        <option>Taiwan</option>
-                        <option>Russia</option>
-                        <option>Philipines</option>
-                        <option>New Zealand</option>
-                        <option>Ausrtalia</option>
-                        <option>Fiji</option>
-                        <option>Thailand</option>
-                        <option>India</option>
-                        <option>Pakistan</option>
-                        <option>Saudi Arabia</option>
-                        <option>Turkey</option>
-                        <option>Greece</option>
+                        {Country.map((item) => (
+                          <option key={item.text}>{item.text}</option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -225,27 +210,9 @@ function SignUp() {
                         name="state"
                         className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:max-w-xs sm:text-sm sm:leading-6"
                       >
-                        <option>MA</option>
-                        <option>CA</option>
-                        <option>NV</option>
-                        <option>NY</option>
-                        <option>TX</option>
-                        <option>GE</option>
-                        <option>WA</option>
-                        <option>WY</option>
-                        <option>CO</option>
-                        <option>UT</option>
-                        <option>Russia</option>
-                        <option>Philipines</option>
-                        <option>New Zealand</option>
-                        <option>Ausrtalia</option>
-                        <option>Fiji</option>
-                        <option>Thailand</option>
-                        <option>India</option>
-                        <option>Pakistan</option>
-                        <option>Saudi Arabia</option>
-                        <option>Turkey</option>
-                        <option>Greece</option>
+                        {State.map((item) => (
+                          <option key={item.text}>{item.text}</option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -284,7 +251,7 @@ function SignUp() {
 
                   <div className="sm:col-span-1">
                     <label className="block text-sm font-medium leading-6 text-gray-900">
-                      ZIP code
+                      ZIP
                     </label>
                     <div className="mt-2">
                       <input
@@ -374,7 +341,7 @@ function SignUp() {
             </form>
           </div>
         </div>
-        <ToastContainer position={toast.POSITION.TOP_CENTER} />
+        <ToastContainer position={toast.POSITION.BOTTOM_CENTER} />
       </main>
       <Footer1 />
     </>
