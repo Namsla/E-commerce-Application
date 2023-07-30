@@ -31,6 +31,8 @@ function SignIn() {
         console.log(response);
         toast.success("Welcome");
         navigate("/");
+
+        localStorage.setItem("session-token", response.data.accessToken);
       })
       .catch((error) => {
         console.log(error.response.data);

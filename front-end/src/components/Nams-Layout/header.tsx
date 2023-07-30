@@ -49,6 +49,7 @@ function Header1() {
               Bazaar
             </span>
           </Link>
+          {searchSection && <Search setSearchSection={setSearchSection} />}
           <div className="flex items-center relative">
             <span
               onClick={() => setDarkMode(!darkMode)}
@@ -82,7 +83,6 @@ function Header1() {
           </div>
         </div>
       </nav>
-      {searchSection && <Search setSearchSection={setSearchSection} />}
     </div>
   );
 }

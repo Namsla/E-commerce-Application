@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SearchBar from "../../Sections/search-bar/searchBar";
+import { Search } from "../../Sections/search-bar/searchBar";
 import { menuLinks } from "./navLinks";
 
 function NavBar() {
@@ -10,7 +10,7 @@ function NavBar() {
           <div className="grid grid-cols-7">
             <div className="col-span-1">Bazaar</div>
             <div className="col-span-6">
-              <SearchBar />
+              <Search />
             </div>
           </div>
         </div>
