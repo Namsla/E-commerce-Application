@@ -6,8 +6,8 @@ import SignUp from "./pages/sign-up/signUp.tsx";
 import { ProductsList } from "./pages/product-listing-page/product-listing.tsx";
 import { ProductDetail } from "./pages/product-details-page/product-detail.tsx";
 import { Search } from "./components/Sections/search-bar/searchBar.tsx";
-import { CartList } from "./pages/cart-page/cart-list.tsx";
 import App from "./App.tsx";
+import { CartPage } from "./pages/cart-page/cart-page.tsx";
 
 const router = createBrowserRouter([
   {
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
 
   {
     path: "/cart",
-    element: <CartList />,
+    element: <CartPage />,
   },
 
   // search result can be found by going to the local host and do forward slash followed by products?q="search content or value"
