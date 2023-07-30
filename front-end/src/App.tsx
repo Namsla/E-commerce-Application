@@ -1,12 +1,15 @@
 import HomePage from "./pages/home-page/homePage";
-import { FilterProvider } from "./context/filter-context";
+import { FilterProvider } from "./context/FilterContext";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
     <div className="App dark:bg-dark">
-      <FilterProvider>
-        <HomePage />
-      </FilterProvider>
+      <CartProvider>
+        <FilterProvider>
+          <HomePage />
+        </FilterProvider>
+      </CartProvider>
     </div>
   );
 }

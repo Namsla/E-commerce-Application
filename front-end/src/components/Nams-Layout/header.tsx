@@ -6,6 +6,7 @@ import { DropdownLoggedOut } from "../Elements/dropped-down-logged-out";
 // import { RiLogoutBoxRLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { useCart } from "../../context/CartContext";
 
 function Header1() {
   const [darkMode, setDarkMode] = useState(
@@ -15,6 +16,7 @@ function Header1() {
   const [dropdown, setDropdown] = useState(false);
 
   const navigate = useNavigate();
+  const { cartList } = useCart();
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
@@ -60,7 +62,7 @@ function Header1() {
             <Link to="/cart" className="text-gray-700 dark:text-white mr-5">
               <span className="text-2xl bi bi-cart-fill relative">
                 <span className="text-white text-sm absolute -top-1 left-2.5 bg-rose-500 px-1 rounded-full ">
-                  0
+                  {cartList.length}
                 </span>
               </span>
             </Link>

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../../context/cart-context";
+import { useCart } from "../../context/CartContext";
 import { Rating } from "./rating";
 
 export const ProductCard = ({ product }) => {
