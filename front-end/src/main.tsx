@@ -10,6 +10,7 @@ import App from "./App.tsx";
 import { CartPage } from "./pages/cart-page/cart-page.tsx";
 import Protected from "./routes/protected-routes.tsx";
 import { CartList } from "./pages/cart-page/cart-list.tsx";
+import { DashbaordPage } from "./pages/dashboard-page/dashboard.tsx";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,15 @@ const router = createBrowserRouter([
     element: (
       <Protected>
         <CartPage />
+      </Protected>
+    ),
+  },
+
+  {
+    path: "/dashboard",
+    element: (
+      <Protected>
+        <DashbaordPage />
       </Protected>
     ),
   },
