@@ -6,6 +6,8 @@ import Footer1 from "../../components/Nams-Layout/footer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useTitle } from "../../hooks/use-title";
+import { Country } from "./country";
+import { State } from "./state";
 
 function SignUp() {
   const [password, setPassword] = useState("");
@@ -24,6 +26,13 @@ function SignUp() {
 
   const navigate = useNavigate();
 
+  const handleCancel = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    navigate("/signin");
+  };
+
   const handleSubmit = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -38,6 +47,7 @@ function SignUp() {
       return;
     } else if (!emailFormat.test(email)) {
       setEError("Invalid email.");
+      toast.error("Invalid email.");
       return;
     } else if (!passwordFormat.test(password)) {
       setPError("Password do not satisfy above criteria.");
@@ -51,7 +61,7 @@ function SignUp() {
     axios
       .post("http://localhost:3000/signup", { email, password, fName })
       .then((response) => {
-        console.log(response);
+        
         toast.success("Welcome");
         localStorage.setItem("token", response.data.accessToken);
         navigate("/signin");
@@ -64,9 +74,9 @@ function SignUp() {
   return (
     <>
       <Header1 />
-      <main className="flex justify-center drop-shadow-lg">
-        <div className="flex justify-center p-5">
-          <div className="w-1/2">
+      <main className="flex justify-center drop-shadow-lg  ">
+        <div className="flex justify-center ">
+          <div className="w-1/2 border-2 border-gray-900/10 p-4 rounded-lg">
             <form>
               {/* <div className="space-y-12"> */}
               <div className="border-b border-gray-900/10 pb-6">
@@ -76,7 +86,7 @@ function SignUp() {
                       Sign Up
                     </p>
                     <p className=" flex sm:col-span-6 text-xs mb-5">
-                      Please Complete All Marked Fields With Asterisk Sign(
+                      Please complete all fields marked with an asterisk (
                       <p className="text-red-600 text-sm">*</p>)
                     </p>
                     <div className="col-span-6">
@@ -187,29 +197,11 @@ function SignUp() {
                         id="country"
                         name="country"
                         className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                        disabled
+                        // disabled
                       >
-                        <option>United States</option>
-                        <option>Canada</option>
-                        <option>Mexico</option>
-                        <option>Great Britain</option>
-                        <option>France</option>
-                        <option>Spain</option>
-                        <option>Nepal</option>
-                        <option>Japan</option>
-                        <option>China</option>
-                        <option>Taiwan</option>
-                        <option>Russia</option>
-                        <option>Philipines</option>
-                        <option>New Zealand</option>
-                        <option>Ausrtalia</option>
-                        <option>Fiji</option>
-                        <option>Thailand</option>
-                        <option>India</option>
-                        <option>Pakistan</option>
-                        <option>Saudi Arabia</option>
-                        <option>Turkey</option>
-                        <option>Greece</option>
+                        {Country.map((item) => (
+                          <option key={item.text}>{item.text}</option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -226,27 +218,9 @@ function SignUp() {
                         name="state"
                         className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:max-w-xs sm:text-sm sm:leading-6"
                       >
-                        <option>MA</option>
-                        <option>CA</option>
-                        <option>NV</option>
-                        <option>NY</option>
-                        <option>TX</option>
-                        <option>GE</option>
-                        <option>WA</option>
-                        <option>WY</option>
-                        <option>CO</option>
-                        <option>UT</option>
-                        <option>Russia</option>
-                        <option>Philipines</option>
-                        <option>New Zealand</option>
-                        <option>Ausrtalia</option>
-                        <option>Fiji</option>
-                        <option>Thailand</option>
-                        <option>India</option>
-                        <option>Pakistan</option>
-                        <option>Saudi Arabia</option>
-                        <option>Turkey</option>
-                        <option>Greece</option>
+                        {State.map((item) => (
+                          <option key={item.text}>{item.text}</option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -285,7 +259,7 @@ function SignUp() {
 
                   <div className="sm:col-span-1">
                     <label className="block text-sm font-medium leading-6 text-gray-900">
-                      ZIP Code
+                      ZIP
                     </label>
                     <div className="mt-2">
                       <input
@@ -312,7 +286,7 @@ function SignUp() {
                       ></textarea>
                     </div>
                     <p className="mt-3 text-sm leading-6 text-gray-600">
-                      Write a Few Sentences About Yourself.
+                      Write a few sentences about yourself.
                     </p>
                   </div>
                 </div>
@@ -348,7 +322,7 @@ function SignUp() {
                     </div>
                     <div className="text-sm leading-6">
                       <label className="font-medium text-gray-900">
-                        More contracts
+                        More contracts.
                       </label>
                     </div>
                   </div>
@@ -360,6 +334,7 @@ function SignUp() {
               <div className="mt-6 flex items-center justify-end gap-x-6">
                 <button
                   type="button"
+                  onClick={handleCancel}
                   className="text-sm font-semibold leading-6 text-gray-900"
                 >
                   Cancel
@@ -375,8 +350,8 @@ function SignUp() {
             </form>
           </div>
         </div>
-        <ToastContainer position={toast.POSITION.TOP_CENTER} />
       </main>
+      <ToastContainer position={toast.POSITION.TOP_CENTER} />
       <Footer1 />
     </>
   );

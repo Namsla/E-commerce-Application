@@ -31,6 +31,8 @@ function SignIn() {
         console.log(response);
         toast.success("Welcome");
         navigate("/");
+
+        localStorage.setItem("session-token", response.data.accessToken);
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -39,7 +41,16 @@ function SignIn() {
   };
 
   useTitle("Sign In Page");
+  // const token = localStorage.getItem("session-token");
 
+  // if (token) {
+  //   toast.error("You are already signed in.");
+  //   return (
+  //     <>
+  //       <ToastContainer position={toast.POSITION.TOP_CENTER} />
+  //     </>
+  //   );
+  // }
   return (
     <>
       <Header1 />
