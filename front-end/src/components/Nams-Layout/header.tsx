@@ -3,10 +3,11 @@ import { Search } from "../Sections/search-bar/searchBar";
 import { useState, useEffect } from "react";
 import { DropdownLoggedOut } from "../Elements/dropped-down-logged-out";
 // import { DropdownLoggedIn } from "../Elements/dropped-down-loggedin";
-// import { RiLogoutBoxRLine } from "react-icons/ri";
+import { RiLogoutBoxRLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useCart } from "../../context/CartContext";
+import NavBar from "../Layout/nav-bar/navBar";
 
 function Header1() {
   const [darkMode, setDarkMode] = useState(
@@ -28,13 +29,20 @@ function Header1() {
     }
   }, [darkMode]);
 
-  // const handleLogout = (
-  //   event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  // ) => {
-  //   event.preventDefault();
-  //   localStorage.removeItem("token");
-  //   navigate("/signin");
-  // };
+  const handleLogout = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    localStorage.removeItem("token");
+    navigate("/signin");
+  };
+
+  const token = localStorage.getItem("session-token");
+
+  if (!token) {
+    return <NavBar />;
+  }
+
   return (
     <div className="sticky top-0 z-50">
       <nav className=" bg-amber-100 drop-shadow-lg border-gray-200 dark:bg-gray-900">
@@ -69,17 +77,17 @@ function Header1() {
             </Link>
             <span
               onClick={() => setDropdown(!dropdown)}
-              className="bi bi-person-circle cursor-pointer text-2xl text-gray-700 dark:text-white"
+              className="bi bi-person-circle cursor-pointer text-2xl text-gray-700 dark:text-white mr-5"
             ></span>
             {dropdown && <DropdownLoggedOut />}
-            {/* <span>
+            <span>
               <button
                 onClick={handleLogout}
-                className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5   w-[24px] h-[24px] text-gray-800 dark:text-white"
+                className="cursor-pointer text-2xl text-gray-700 dark:text-white mr-5 w-[24px] h-[38px] text-gray-800 dark:text-white"
               >
                 <RiLogoutBoxRLine />
               </button>
-            </span> */}
+            </span>
           </div>
         </div>
       </nav>

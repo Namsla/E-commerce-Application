@@ -5,18 +5,15 @@ import SignIn from "./pages/sign-in/signIn.tsx";
 import SignUp from "./pages/sign-up/signUp.tsx";
 import { ProductsList } from "./pages/product-listing-page/product-listing.tsx";
 import { ProductDetail } from "./pages/product-details-page/product-detail.tsx";
-import { Search } from "./components/Sections/search-bar/searchBar.tsx";
+// import { Search } from "./components/Sections/search-bar/searchBar.tsx";
 import App from "./App.tsx";
 import { CartPage } from "./pages/cart-page/cart-page.tsx";
+import Protected from "./routes/protected-routes.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "/search",
-    element: <Search />,
   },
 
   { path: "/login", element: <SignIn /> },
@@ -36,12 +33,20 @@ const router = createBrowserRouter([
 
   {
     path: "/products",
-    element: <ProductsList />,
+    element: (
+      <Protected>
+        <ProductsList />
+      </Protected>
+    ),
   },
 
   {
     path: "/products/:id",
-    element: <ProductDetail />,
+    element: (
+      <Protected>
+        <ProductDetail />
+      </Protected>
+    ),
   },
 
   {
