@@ -33,7 +33,7 @@ function Header1() {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
-    localStorage.removeItem("token");
+    localStorage.removeItem("session-token");
     navigate("/signin");
   };
 

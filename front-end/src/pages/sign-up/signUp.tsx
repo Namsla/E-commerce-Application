@@ -26,6 +26,13 @@ function SignUp() {
 
   const navigate = useNavigate();
 
+  const handleCancel = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    navigate("/signin");
+  };
+
   const handleSubmit = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -54,7 +61,7 @@ function SignUp() {
     axios
       .post("http://localhost:3000/signup", { email, password, fName })
       .then((response) => {
-        console.log(response);
+        
         toast.success("Welcome");
         localStorage.setItem("token", response.data.accessToken);
         navigate("/signin");
@@ -327,6 +334,7 @@ function SignUp() {
               <div className="mt-6 flex items-center justify-end gap-x-6">
                 <button
                   type="button"
+                  onClick={handleCancel}
                   className="text-sm font-semibold leading-6 text-gray-900"
                 >
                   Cancel
@@ -342,8 +350,8 @@ function SignUp() {
             </form>
           </div>
         </div>
-        <ToastContainer position={toast.POSITION.TOP_CENTER} />
       </main>
+      <ToastContainer position={toast.POSITION.TOP_CENTER} />
       <Footer1 />
     </>
   );
