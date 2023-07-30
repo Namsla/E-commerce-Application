@@ -8,10 +8,10 @@ export const Testimonials = () => {
         <figure className="flex flex-col justify-center items-center p-8 text-center bg-white rounded-t-lg border-b border-gray-200 md:rounded-t-none md:rounded-tl-lg md:border-r dark:bg-gray-800 dark:border-gray-700">
           <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8 dark:text-gray-400">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Very easy to filter items
+              Very easy to filter the books.
             </h3>
             <p className="my-4 font-light">
-              If you care for your time, I hands down would go with this."
+              If you care for your time, I would go with this eBook store."
             </p>
           </blockquote>
           <figcaption className="flex justify-center items-center space-x-3">
@@ -21,7 +21,7 @@ export const Testimonials = () => {
               alt="user"
             />
             <div className="space-y-0.5 font-medium dark:text-white text-left">
-              <div>Sandesh</div>
+              <div>Sandesh </div>
               <div className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Developer at Random AI
               </div>
@@ -93,7 +93,7 @@ export const Testimonials = () => {
               alt="user"
             />
             <div className="space-y-0.5 font-medium dark:text-white text-left">
-              <div>Joseph McFall</div>
+              <div>Yogesh</div>
               <div className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Teacher
               </div>

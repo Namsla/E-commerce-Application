@@ -5,8 +5,10 @@ import { FeaturedProducts } from "./featured-products";
 import { Faq } from "./frequently-asked-questions";
 import { Hero } from "./hero-section";
 import { Testimonials } from "./testimonial";
+import { useTitle } from "../../hooks/use-title";
 
 function HomePage() {
+  useTitle("Home Page");
   return (
     <>
       <ScrollToTop />

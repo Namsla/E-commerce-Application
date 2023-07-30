@@ -1,4 +1,8 @@
-export const Checkout = () => {
+import { useCart } from "../../context/CartContext";
+
+export const Checkout = ({ setCheckout }) => {
+  const { total } = useCart();
+
   return (
     <section>
       <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
@@ -12,6 +16,7 @@ export const Checkout = () => {
         <div className="relative p-4 w-full max-w-md h-full md:h-auto overflow-y-auto">
           <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <button
+              onClick={() => setCheckout(false)}
               type="button"
               className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
               data-modal-toggle="authentication-modal"
@@ -131,7 +136,7 @@ export const Checkout = () => {
                   />
                 </div>
                 <p className="mb-4 text-2xl font-semibold text-lime-500 text-center">
-                  $99
+                  ${total}
                 </p>
                 <button
                   type="submit"

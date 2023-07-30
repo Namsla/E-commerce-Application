@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useTitle } from "../../hooks/use-title";
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -37,19 +38,21 @@ function SignIn() {
       });
   };
 
+  useTitle("Sign In Page");
+
   return (
     <>
       <Header1 />
       <main className="flex justify-center drop-shadow-lg">
-        <div className="flex justify-center">
+        <div className="flex justify-center pt-20">
           <div>
             <form className="space-y-6">
               <div>
                 <div className="text-2xl text-amber-600 mb-5 flex justify-center">
-                  SignIn
+                  Sign In
                 </div>
                 <label className="block text-sm font-medium leading-6 text-gray-900">
-                  Email address
+                  Email Address
                 </label>
                 <div className="mt-2">
                   <input
@@ -72,7 +75,7 @@ function SignIn() {
                       href="#"
                       className="font-semibold text-amber-600 hover:text-amber-500"
                     >
-                      Forgot password?
+                      Forgot Password?
                     </a>
                   </div>
                 </div>
@@ -93,7 +96,7 @@ function SignIn() {
                   onClick={handleLogin}
                   className="flex w-full justify-center rounded-md bg-amber-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
                 >
-                  Sign in{" "}
+                  Sign In
                 </button>
               </div>
             </form>
@@ -104,7 +107,7 @@ function SignIn() {
                   href="/register"
                   className="font-semibold leading-6 text-l text-amber-600 hover:text-amber-500 ml-2 mr-2"
                 >
-                  Sign Up and Explore the world of wonders.
+                  Sign Up and Explore The World of Wonders.
                 </a>
                 Now!
               </p>
