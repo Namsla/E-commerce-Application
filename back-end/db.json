@@ -53,6 +53,12 @@
       "password": "$2a$10$bCPwxG5nUNwwUwFP5sUxwuvNevHvQt8ueJEWt8yQ94k//yq2.P5/u",
       "fName": "eerwer",
       "id": 11
+    },
+    {
+      "email": "abcd@gmail.com",
+      "password": "$2a$10$R7d4UVpAgwIPSRCfeG9u0eph7tXKHZpEursfgnk7btiU0AGlyOqOm",
+      "fName": "Abc",
+      "id": 12
     }
   ],
   "products": [
