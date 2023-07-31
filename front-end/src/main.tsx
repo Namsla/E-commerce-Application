@@ -9,6 +9,7 @@ import { ProductDetail } from "./pages/product-details-page/product-detail.tsx";
 import App from "./App.tsx";
 import { CartPage } from "./pages/cart-page/cart-page.tsx";
 import Protected from "./routes/protected-routes.tsx";
+import { CartList } from "./pages/cart-page/cart-list.tsx";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,11 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <CartPage />,
+  },
+
+  {
+    path: "/shoppinglist",
+    element: <CartList />,
   },
 
   // search result can be found by going to the local host and do forward slash followed by products?q="search content or value"
