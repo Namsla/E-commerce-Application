@@ -56,7 +56,7 @@ function SignIn() {
     <>
       <Header1 />
       <main className="flex justify-center drop-shadow-lg dark:bg-dark">
-        <div className="flex justify-center pt-20 ">
+        <div className="flex justify-center border-2 border-gray-900/10 rounded-lg dark:bg-gray-800 p-8 ">
           <div>
             <form className="space-y-6">
               <div>
@@ -112,7 +112,7 @@ function SignIn() {
                 </button>
               </div>
             </form>
-            <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+            <div className="sm:mx-auto sm:w-full sm:max-w-sm pt-6">
               <p className=" text-center text-sm text-gray-500 px-6 py-6 dark:text-slate-100">
                 Not a member yet?&nbsp;
                 <a

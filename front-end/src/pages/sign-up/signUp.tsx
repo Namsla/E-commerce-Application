@@ -73,9 +73,9 @@ function SignUp() {
   return (
     <>
       <Header1 />
-      <main className="flex justify-center drop-shadow-lg drop-shadow-lg dark:bg-dark ">
+      <main className="flex justify-center drop-shadow-lg drop-shadow-lg dark:bg-dark  ">
         <div className="flex justify-center ">
-          <div className="w-1/2 border-2 border-gray-900/10 p-4 rounded-lg">
+          <div className="w-1/2 border-2 border-gray-900/10 rounded-lg dark:bg-gray-800 p-8 ">
             <form>
               {/* <div className="space-y-12"> */}
               <div className="border-b border-gray-900/10 pb-6">
@@ -89,7 +89,7 @@ function SignUp() {
                       <p className="text-red-600 text-sm">*</p>)
                     </p>
                     <div className="col-span-6 ">
-                      <label className="flex text-sm font-medium leading-6 text-gray-900 dark:text-slate-100 dark:text-slate-100">
+                      <label className="flex text-sm leading-6 text-gray-900 dark:text-slate-100 dark:text-slate-100">
                         Email address&nbsp;<p className="text-red-500">*</p>
                       </label>
                       <div className="mt-2">
