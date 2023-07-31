@@ -10,7 +10,7 @@ export const CartPage = () => {
   return (
     <>
       <Header1 />
-      <main> {cartList.length ? <CartList /> : <CartEmpty />} </main>
+      <div> {cartList.length ? <CartList /> : <CartEmpty />} </div>
       <Footer1 />
     </>
   );

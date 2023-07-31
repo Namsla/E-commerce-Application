@@ -61,7 +61,6 @@ function SignUp() {
     axios
       .post("http://localhost:3000/signup", { email, password, fName })
       .then((response) => {
-        
         toast.success("Welcome");
         localStorage.setItem("token", response.data.accessToken);
         navigate("/signin");
@@ -74,23 +73,23 @@ function SignUp() {
   return (
     <>
       <Header1 />
-      <main className="flex justify-center drop-shadow-lg  ">
+      <main className="flex justify-center drop-shadow-lg drop-shadow-lg dark:bg-dark ">
         <div className="flex justify-center ">
           <div className="w-1/2 border-2 border-gray-900/10 p-4 rounded-lg">
             <form>
               {/* <div className="space-y-12"> */}
               <div className="border-b border-gray-900/10 pb-6">
                 <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                  <div className="sm:col-span-6">
-                    <p className="text-2xl text-amber-600 mb-5 flex justify-center">
+                  <div className="sm:col-span-6 dark:text-slate-100">
+                    <p className="text-2xl text-amber-600 mb-5 flex justify-center ">
                       Sign Up
                     </p>
                     <p className=" flex sm:col-span-6 text-xs mb-5">
-                      Please complete all fields marked with an asterisk (
+                      Please complete all fields marked with asterisk (
                       <p className="text-red-600 text-sm">*</p>)
                     </p>
-                    <div className="col-span-6">
-                      <label className="flex text-sm font-medium leading-6 text-gray-900">
+                    <div className="col-span-6 ">
+                      <label className="flex text-sm font-medium leading-6 text-gray-900 dark:text-slate-100 dark:text-slate-100">
                         Email address&nbsp;<p className="text-red-500">*</p>
                       </label>
                       <div className="mt-2">
@@ -100,7 +99,7 @@ function SignUp() {
                           id="email"
                           name="email"
                           type="email"
-                          className="block w-full rounded-md py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-100"
+                          className="block w-full dark:bg-slate-200/20 dark:text-slate-100 rounded-md py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-100"
                         />
                       </div>
                       <div className="sm:col-span-6 text-xs mt-2">
@@ -112,8 +111,7 @@ function SignUp() {
                       </div>
                     </div>
                   </div>
-                  <div className="sm:col-span-6 text-xs">
-                    {" "}
+                  <div className="sm:col-span-6 text-xs dark:text-slate-100">
                     Password must be at least 8 characters long and it should
                     contain at least 1 letter, 1 digit, and 1 special character
                     [!@#$%^&*].
@@ -124,7 +122,7 @@ function SignUp() {
                     )}
                   </div>
                   <div className="sm:col-span-3">
-                    <label className="flex text-sm font-medium leading-6 text-gray-900">
+                    <label className="flex text-sm font-medium leading-6 text-gray-900 dark:text-slate-100 dark:text-slate-100">
                       Password&nbsp;<p className="text-red-500">*</p>
                     </label>
 
@@ -135,12 +133,12 @@ function SignUp() {
                         type="password"
                         name="password"
                         id="password"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                        className="block dark:bg-slate-200/20 dark:text-slate-100 w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
                   <div className="sm:col-span-3">
-                    <label className="flex text-sm font-medium leading-6 text-gray-900">
+                    <label className="flex text-sm font-medium leading-6 text-gray-900 dark:text-slate-100 dark:text-slate-100">
                       Confirm Password&nbsp;<p className="text-red-500">*</p>
                     </label>
                     <div className="mt-2">
@@ -150,12 +148,12 @@ function SignUp() {
                         type="password"
                         name="password2"
                         id="password2"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                        className="block dark:bg-slate-200/20 dark:text-slate-100 w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
                   <div className="sm:col-span-3">
-                    <label className="flex text-sm font-medium leading-6 text-gray-900">
+                    <label className="flex text-sm font-medium leading-6 text-gray-900 dark:text-slate-100 dark:text-slate-100">
                       First Name&nbsp;<p className="text-red-500">*</p>
                     </label>
                     <div className="mt-2">
@@ -165,13 +163,13 @@ function SignUp() {
                         type="text"
                         name="first-name"
                         id="first-name"
-                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                        className="block dark:bg-slate-200/20 dark:text-slate-100 px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
 
                   <div className="sm:col-span-3">
-                    <label className="block text-sm font-medium leading-6 text-gray-900">
+                    <label className="flex text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
                       Last Name
                     </label>
                     <div className="mt-2">
@@ -181,13 +179,13 @@ function SignUp() {
                         type="text"
                         name="last-name"
                         id="last-name"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                        className="block dark:bg-slate-200/20 dark:text-slate-100 w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
 
                   <div className="sm:col-span-3">
-                    <label className="block text-sm font-medium leading-6 text-gray-900">
+                    <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
                       Country (Disabled option)
                     </label>
                     <div className="mt-2">
@@ -196,7 +194,7 @@ function SignUp() {
                         onChange={(event) => setCountry(event.target.value)}
                         id="country"
                         name="country"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                        className="block w-full px-1 dark:bg-slate-200/20 dark:text-slate-100 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:max-w-xs sm:text-sm sm:leading-6"
                         // disabled
                       >
                         {Country.map((item) => (
@@ -207,7 +205,7 @@ function SignUp() {
                   </div>
 
                   <div className="sm:col-span-3">
-                    <label className="block text-sm font-medium leading-6 text-gray-900">
+                    <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
                       State
                     </label>
                     <div className="mt-2">
@@ -216,7 +214,7 @@ function SignUp() {
                         onChange={(event) => setState(event.target.value)}
                         id="state"
                         name="state"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                        className="block w-full px-1 dark:bg-slate-200/20 dark:text-slate-100 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:max-w-xs sm:text-sm sm:leading-6"
                       >
                         {State.map((item) => (
                           <option key={item.text}>{item.text}</option>
@@ -226,7 +224,7 @@ function SignUp() {
                   </div>
 
                   <div className="sm:col-span-5">
-                    <label className="block text-sm font-medium leading-6 text-gray-900">
+                    <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
                       Street Address
                     </label>
                     <div className="mt-2">
@@ -236,13 +234,13 @@ function SignUp() {
                         type="text"
                         name="street-address"
                         id="street-address"
-                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                        className="block dark:bg-slate-200/20 dark:text-slate-100 px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
 
                   <div className="sm:col-span-2 sm:col-start-1">
-                    <label className="block text-sm font-medium leading-6 text-gray-900">
+                    <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
                       City
                     </label>
                     <div className="mt-2">
@@ -252,13 +250,13 @@ function SignUp() {
                         type="text"
                         name="city"
                         id="city"
-                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                        className="block dark:bg-slate-200/20 dark:text-slate-100 px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
 
                   <div className="sm:col-span-1">
-                    <label className="block text-sm font-medium leading-6 text-gray-900">
+                    <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
                       ZIP
                     </label>
                     <div className="mt-2">
@@ -268,12 +266,12 @@ function SignUp() {
                         type="text"
                         name="postal-code"
                         id="postal-code"
-                        className="block px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                        className="block dark:bg-slate-200/20 dark:text-slate-100 px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
                   <div className="col-span-full">
-                    <label className="block text-sm font-medium leading-6 text-gray-900">
+                    <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
                       About
                     </label>
                     <div className="mt-2">
@@ -282,10 +280,10 @@ function SignUp() {
                         onChange={(event) => setAbout(event.target.value)}
                         id="about"
                         name="about"
-                        className="block w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                        className="block dark:bg-slate-200/20 dark:text-slate-100 w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                       ></textarea>
                     </div>
-                    <p className="mt-3 text-sm leading-6 text-gray-600">
+                    <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-slate-400">
                       Write a few sentences about yourself.
                     </p>
                   </div>
@@ -305,7 +303,7 @@ function SignUp() {
                       />
                     </div>
                     <div className="text-sm leading-6">
-                      <label className="font-medium text-gray-900">
+                      <label className="font-medium text-gray-900 dark:text-slate-100">
                         I acknowledge that I have read the terms and conditions
                         and agree to abide by the terms and conditions.
                       </label>
@@ -321,7 +319,7 @@ function SignUp() {
                       />
                     </div>
                     <div className="text-sm leading-6">
-                      <label className="font-medium text-gray-900">
+                      <label className="font-medium text-gray-900 dark:text-slate-100">
                         More contracts.
                       </label>
                     </div>
@@ -335,7 +333,7 @@ function SignUp() {
                 <button
                   type="button"
                   onClick={handleCancel}
-                  className="text-sm font-semibold leading-6 text-gray-900"
+                  className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-100"
                 >
                   Cancel
                 </button>
