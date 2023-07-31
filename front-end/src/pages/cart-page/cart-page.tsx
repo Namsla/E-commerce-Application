@@ -10,7 +10,9 @@ export const CartPage = () => {
   return (
     <>
       <Header1 />
-      <div> {cartList.length ? <CartList /> : <CartEmpty />} </div>
+      <div className="dark:bg-gray-800 flex flex-col items-center">
+        <main> {cartList.length ? <CartList /> : <CartEmpty />}</main>
+      </div>
       <Footer1 />
     </>
   );

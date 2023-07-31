@@ -109,6 +109,7 @@ export const ProductDetail = () => {
           </div>
         </section>
       </main>
+
       <Footer1 />
     </>
   );
