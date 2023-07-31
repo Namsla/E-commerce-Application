@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Search } from "../Sections/search-bar/searchBar";
 import { useState, useEffect } from "react";
 import { DropdownLoggedOut } from "../Elements/dropped-down-logged-out";
-// import { DropdownLoggedIn } from "../Elements/dropped-down-loggedin";
+import { DropdownLoggedIn } from "../Elements/dropped-down-loggedin";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -16,7 +16,6 @@ function Header1() {
   );
   const [searchSection, setSearchSection] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-
   const navigate = useNavigate();
   const { cartList } = useCart();
 
@@ -81,7 +80,12 @@ function Header1() {
                 onClick={() => setDropdown(!dropdown)}
                 className="bi bi-person-circle cursor-pointer text-2xl text-gray-700 dark:text-white mr-5"
               ></span>
-              {dropdown && <DropdownLoggedOut />}
+              {dropdown &&
+                (token ? (
+                  <DropdownLoggedIn setDropdown={setDropdown} />
+                ) : (
+                  <DropdownLoggedOut setDropdown={setDropdown} />
+                ))}
               <span>
                 <button
                   onClick={handleLogout}
