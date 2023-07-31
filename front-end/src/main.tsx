@@ -34,30 +34,31 @@ const router = createBrowserRouter([
 
   {
     path: "/products",
-    element: (
-      <Protected>
-        <ProductsList />
-      </Protected>
-    ),
+    element: <ProductsList />,
   },
 
   {
     path: "/products/:id",
+    element: <ProductDetail />,
+  },
+
+  {
+    path: "/cart",
+
     element: (
       <Protected>
-        <ProductDetail />
+        <CartPage />
       </Protected>
     ),
   },
 
   {
-    path: "/cart",
-    element: <CartPage />,
-  },
-
-  {
     path: "/shoppinglist",
-    element: <CartList />,
+    element: (
+      <Protected>
+        <CartList />
+      </Protected>
+    ),
   },
 
   // search result can be found by going to the local host and do forward slash followed by products?q="search content or value"
