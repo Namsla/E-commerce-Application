@@ -6,14 +6,14 @@ export const DashbaordPage = () => {
   return (
     <>
       <Header1 />
-      <main>
+      <div className="dark:bg-gray-800">
         <section>
-          <p className="text-2xl text-center font-semibold dark:text-slate-100 my-10 underline underline-offset-8">
+          <p className="text-2xl text-center font-semibold dark:text-slate-100 py-8">
             My Dashboard
             <DashbaordEmpty />
           </p>
         </section>
-      </main>
+      </div>
       <Footer1 />
     </>
   );

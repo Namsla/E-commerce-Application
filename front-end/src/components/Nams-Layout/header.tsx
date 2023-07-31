@@ -3,7 +3,7 @@ import { Search } from "../Sections/search-bar/searchBar";
 import { useState, useEffect } from "react";
 import { DropdownLoggedOut } from "../Elements/dropped-down-logged-out";
 import { DropdownLoggedIn } from "../Elements/dropped-down-loggedin";
-import { RiLogoutBoxRLine } from "react-icons/ri";
+// import { RiLogoutBoxRLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useCart } from "../../context/CartContext";
@@ -28,14 +28,6 @@ function Header1() {
       document.documentElement.classList.remove("dark");
     }
   }, [darkMode]);
-
-  const handleLogout = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    event.preventDefault();
-    localStorage.removeItem("session-token");
-    navigate("/signin");
-  };
 
   const token = localStorage.getItem("session-token");
 
@@ -86,19 +78,10 @@ function Header1() {
                 ) : (
                   <DropdownLoggedOut setDropdown={setDropdown} />
                 ))}
-              <span>
-                <button
-                  onClick={handleLogout}
-                  className="cursor-pointer text-2xl text-gray-700 dark:text-white mr-5 w-[24px] h-[38px] text-gray-800 dark:text-white"
-                >
-                  <RiLogoutBoxRLine />
-                </button>
-              </span>
             </div>
           </div>
         </nav>
       </div>
-      <CartList />
     </>
   );
 }

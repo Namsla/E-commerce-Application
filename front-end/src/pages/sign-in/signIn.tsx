@@ -33,6 +33,7 @@ function SignIn() {
         navigate("/");
 
         localStorage.setItem("session-token", response.data.accessToken);
+        localStorage.setItem("email", email);
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -54,15 +55,15 @@ function SignIn() {
   return (
     <>
       <Header1 />
-      <main className="flex justify-center drop-shadow-lg">
-        <div className="flex justify-center pt-20">
+      <main className="flex justify-center drop-shadow-lg dark:bg-dark">
+        <div className="flex justify-center border-2 border-gray-900/10 rounded-lg dark:bg-gray-800 p-8 ">
           <div>
             <form className="space-y-6">
               <div>
                 <div className="text-2xl text-amber-600 mb-5 flex justify-center">
                   Sign In
                 </div>
-                <label className="block text-sm font-medium leading-6 text-gray-900">
+                <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
                   Email Address
                 </label>
                 <div className="mt-2">
@@ -72,13 +73,13 @@ function SignIn() {
                     type="email"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    className="block w-full rounded-md py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-100"
+                    className="block w-full dark:bg-slate-200/20 dark:text-slate-100 rounded-md py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-100"
                   />
                 </div>
               </div>
               <div>
                 <div className="flex items-center justify-between">
-                  <label className="block text-sm font-medium leading-6 text-gray-900">
+                  <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
                     Password
                   </label>
                   <div className="text-sm">
@@ -97,7 +98,7 @@ function SignIn() {
                     type="password"
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
-                    className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 dark:bg-slate-200/20 dark:text-slate-100 py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -111,8 +112,8 @@ function SignIn() {
                 </button>
               </div>
             </form>
-            <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-              <p className=" text-center text-sm text-gray-500 px-6 py-6">
+            <div className="sm:mx-auto sm:w-full sm:max-w-sm pt-6">
+              <p className=" text-center text-sm text-gray-500 px-6 py-6 dark:text-slate-100">
                 Not a member yet?&nbsp;
                 <a
                   href="/register"
