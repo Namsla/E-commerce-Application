@@ -9,6 +9,7 @@ import { useTitle } from "../../hooks/use-title";
 import { CartProvider } from "../../context/CartContext";
 import { FilterProvider } from "../../context/FilterContext";
 import { useCart } from "../../context/CartContext";
+import { CartList } from "../cart-page/cart-list";
 
 export const ProductsList = () => {
   const [show, setShow] = useState(false);
@@ -73,6 +74,7 @@ export const ProductsList = () => {
 
             {show && <FilterBar setShow={setShow} />}
           </div>
+          <CartList />
         </FilterProvider>
       </CartProvider>
 
