@@ -71,7 +71,7 @@ function SignUp() {
   };
   useTitle("Sign Up Page");
   return (
-    <>
+    <div className="dark:bg-dark">
       <Header1 />
       <main className="flex justify-center drop-shadow-lg drop-shadow-lg dark:bg-dark  ">
         <div className="flex justify-center ">
@@ -351,7 +351,7 @@ function SignUp() {
       </main>
       <ToastContainer position={toast.POSITION.TOP_CENTER} />
       <Footer1 />
-    </>
+    </div>
   );
 }
 

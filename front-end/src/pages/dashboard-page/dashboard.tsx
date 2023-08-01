@@ -6,13 +6,13 @@ export const DashbaordPage = () => {
   return (
     <>
       <Header1 />
-      <div className="dark:bg-gray-800">
-        <section>
-          <p className="text-2xl text-center font-semibold dark:text-slate-100 py-8">
+      <div className="dark:bg-gray-800 flex flex-col items-center">
+        <main>
+          <p className="text-2xl text-center font-semibold dark:text-slate-100 py-5">
             My Dashboard
             <DashbaordEmpty />
           </p>
-        </section>
+        </main>
       </div>
       <Footer1 />
     </>

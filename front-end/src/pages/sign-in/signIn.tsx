@@ -53,10 +53,11 @@ function SignIn() {
   //   );
   // }
   return (
-    <>
+    <div className="dark:bg-dark">
       <Header1 />
-      <main className="flex justify-center drop-shadow-lg dark:bg-dark">
-        <div className="flex justify-center border-2 border-gray-900/10 rounded-lg dark:bg-gray-800 p-8 ">
+
+      <main className="flex justify-center drop-shadow-lg dark:bg-dark mt-5 mb-5">
+        <div className="flex justify-center border-2 border-gray-900/10 rounded-lg dark:bg-gray-800 p-8">
           <div>
             <form className="space-y-6">
               <div>
@@ -129,8 +130,9 @@ function SignIn() {
       </main>
       <ToastContainer position={toast.POSITION.TOP_CENTER} />
       {console.log(email, password)}
+
       <Footer1 />
-    </>
+    </div>
   );
 }
 
